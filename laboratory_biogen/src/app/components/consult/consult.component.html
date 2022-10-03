@@ -1,0 +1,28 @@
+<body>
+
+<form class="row center-block" (ngSubmit) ="onSubmit(cedulaForm.value)" [formGroup]="cedulaForm">
+    <span class="d-flex w-100 justify-content-center" id="contenedor" >
+            <input type="number" class="form-control" id="cc" name="cc" required formControlName="cc" placeholder="Cedula">       
+ 
+        <button class="srch" type="submit" class="btn btn-primary">Buscar</button>
+
+    </span>
+  </form>
+
+
+<div class="listForm">
+  <ul class="list-group" [classList]="bloodExam" >
+    <li  *ngFor="let exam of bloodExam" class="list-group-item">   
+            <span class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{exam.fullName}}</h5>
+            </span>
+            <p class="mb-1">El riesgo del paciente es  <b>{{exam.result}}</b></p>
+            <small><b>Azúcar:</b> {{exam.sugar}}% <b>Grasa: </b>{{exam.fat}}%  <b>Oxigeno:</b> {{exam.oxygen}}%</small>
+ 
+        </li>
+      </ul>
+</div>
+
+
+  
+</body>

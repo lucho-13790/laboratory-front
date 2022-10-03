@@ -1,0 +1,48 @@
+<h1>Estudio de Sangre</h1>
+<form class="row g-2" (ngSubmit) ="onSubmit(examForm.value)" [formGroup]="examForm">
+    <div class="col-md-6">
+      <label for="input" class="form-label">Nombre del paciente</label>
+      <input type="text" class="form-control" id="name" name="name" required formControlName="name">
+      <div *ngIf="examForm.get('name')?.touched && examForm.get('name')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+      
+    </div>
+    <div class="col-md-6">
+      <label for="input" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="lastname" name="lastname" required formControlName="lastname">
+    <div *ngIf="examForm.get('lastname')?.touched && examForm.get('lastname')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+
+    </div>
+    <div class="col-6">
+        <label for="input" class="form-label">Cedula</label>
+        <input type="number" class="form-control" id="cedula" name="cc" required formControlName="cc">
+        <div *ngIf="examForm.get('cc')?.touched && examForm.get('cc')?.errors?.['required'] " class="alert alert-danger">Este campo es requerido</div>
+  
+    </div>
+    <h2>Ingrese los datos medicos del paciente</h2>
+    <div class="col-md-3">
+      <label for="input" class="form-label">Porcentaje de azucar</label>
+      <input type="number" class="form-control" id="sugar" name="sugar"required formControlName="sugar">
+      <div *ngIf="examForm.get('sugar')?.touched && examForm.get('sugar')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+      <div *ngIf="examForm.get('sugar')?.touched && examForm.get('sugar')?.errors?.['min']" class="alert alert-danger">El valor debe estar entre 0-100</div>
+      <div *ngIf="examForm.get('sugar')?.touched && examForm.get('sugar')?.errors?.['max']" class="alert alert-danger">El valor debe estar entre 0-100</div>
+    </div>
+    <div class="col-md-3">
+      <label for="input" class="form-label">Porcentaje de grasas</label>
+      <input type="number" class="form-control" id="fat" name="fat" required formControlName="fat">
+   <div *ngIf="examForm.get('fat')?.touched && examForm.get('fat')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+   <div *ngIf="examForm.get('fat')?.touched && examForm.get('fat')?.errors?.['min']" class="alert alert-danger">El valor debe estar entre 0-100</div>
+   <div *ngIf="examForm.get('fat')?.touched && examForm.get('fat')?.errors?.['max']" class="alert alert-danger">El valor debe estar entre 0-100</div>
+    </div>
+    <div class="col-md-3">
+        <label for="input" class="form-label">Porcentaje de Oxigeno</label>
+        <input type="number" class="form-control" id="oxygen" name="oxygen" required formControlName="oxygen">
+    <div *ngIf="examForm.get('oxygen')?.touched && examForm.get('oxygen')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+    <div *ngIf="examForm.get('oxygen')?.touched && examForm.get('oxygen')?.errors?.['min']" class="alert alert-danger">El valor debe estar entre 0-100</div>
+    <div *ngIf="examForm.get('oxygen')?.touched && examForm.get('oxygen')?.errors?.['max']" class="alert alert-danger">El valor debe estar entre 0-100</div>
+    
+    
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" [disabled]="examForm.invalid">Calcular Riesgo</button>
+    </div>
+  </form>

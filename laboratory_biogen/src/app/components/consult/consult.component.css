@@ -1,0 +1,23 @@
+body{
+    margin: 30px;
+}
+form{
+
+    margin: auto;
+}
+
+div{
+    margin-top: 20px;
+}
+listForm{
+    margin: 10px;
+}
+button{
+    margin-left: 20px;
+}
+li{
+    margin: auto;
+    width: 500px;
+    border: 2px solid sienna;
+    border-color: rgb(127, 157, 255);
+}
